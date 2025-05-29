@@ -4,10 +4,8 @@
 int main() 
 { 
 int fib[N]; 
-// Initialize the first two Fibonacci numbers 
 fib[0] = 0; 
-fib[1] = 1; 
-// Sequential computation of Fibonacci numbers 
+fib[1] = 1;  
 for (int i = 2; i < N; i++) { 
 fib[i] = fib[i-1] + fib[i-2]; 
 } 
@@ -15,8 +13,7 @@ printf("Fibonacci sequence (sequential):\n");
 for (int i = 0; i < N; i++) { 
 printf("%d ", fib[i]); 
 } 
-printf("\n"); 
-// Parallel computation of Fibonacci numbers with loop unrolling using OpenMP 
+printf("\n");  
 #pragma omp parallel for unroll 
 for (int i = 2; i < N; i++) { 
 fib[i] = fib[i-1] + fib[i-2]; 
