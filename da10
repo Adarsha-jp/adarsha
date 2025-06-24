@@ -1,1 +1,15 @@
-
+rm=list(ls)
+df<-data.frame(weight=c(140,155,159,179,192,200,212),
+               height=c(60,62,67,70,71,72,75))
+head(df)
+attach(df)
+scatter.smooth(weight,height,main="weight vs.height")
+boxplot(weight)
+boxplot(height)
+model<-lm(height~weight)
+summary(model)
+res<-resid(model)
+plot(fitted(model),res)        
+abline(0,0)
+qqnorm(res)
+qqline(res)
